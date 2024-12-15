@@ -4,6 +4,7 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import LaserScan
 from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
+import numpy as np 
 
 # This node was created as a workaround to resolve issues with visualizing Rviz LIDAR data.
 # The node subscribes to the /scan topic and relays the same information. The only difference is
@@ -30,6 +31,8 @@ class ScanRelay(Node):
     def scan_callback(self, msg):
         # Republish the message on /scan_relay
         self.publisher.publish(msg)
+
+
 
 def main(args=None):
     rclpy.init(args=args)

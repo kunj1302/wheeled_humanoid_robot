@@ -1237,7 +1237,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="1.57 0 0" />
       <geometry>
         <mesh
           filename="package://wheeled_humanoid_robot/meshes/neck.STL" />
@@ -1263,7 +1263,7 @@
     type="continuous">
     <origin
       xyz="0.010481 -0.24324 1.7702"
-      rpy="1.5708 0 0" />
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
@@ -1481,7 +1481,7 @@
 
   <gazebo reference="neck">
   <sensor name="lidar" type="ray">
-    <pose>0.0 0.3 0.0 1.57 0 0</pose>
+    <pose>0 0 0.3 0 0 0</pose>
     <always_on>true</always_on>
     <visualize>true</visualize>
     <update_rate>5</update_rate>
