@@ -26,18 +26,10 @@ DESTINATION share/${PROJECT_NAME}/
 )
 
 
+
 install(
   PROGRAMS
   launch/robot_description_publisher.py
-  #scripts/camera_subscriber.py
-  #scripts/joint_1_position.py
-  #scripts/joint_2_position.py
-  #scripts/start_position_path.py
-  #scripts/joint_torque_control.py
-  #scripts/coffee_path.py
-  #scripts/teleop.py
-  #scripts/straight_line_controller.py
-  #scripts/p_controller.py
   scripts/laser_scan_relay.py
   DESTINATION lib/${PROJECT_NAME}
   )
