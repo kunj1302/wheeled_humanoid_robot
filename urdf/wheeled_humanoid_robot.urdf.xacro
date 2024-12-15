@@ -1,0 +1,1274 @@
+<?xml version="1.0" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="wheeled_humanoid_robot"  xmlns:xacro="http://ros.org/wiki/xacro">
+
+
+
+  # Add this before base link
+  <link name="dummy_link"></link>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0106007241216466 1.45043594865139 0.243235567534499"
+        rpy="0 0 0" />
+      <mass
+        value="107.726187446562" />
+      <inertia
+        ixx="5.6782038141103"
+        ixy="2.7603272204579E-05"
+        ixz="-1.81388271893312E-07"
+        iyy="3.18933313851226"
+        iyz="3.81902344842371E-08"
+        izz="4.92859558972679" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+    # Add this after base link
+  <joint 
+    name="dummy_joint" 
+    type="fixed">
+    <origin 
+      rpy="0 0 0" 
+      xyz="0 0 0" />
+    <parent 
+      link="dummy_link"/>
+    <child 
+      link="base_link"/>
+  </joint>
+
+  <link
+    name="left_shoulder">
+    <inertial>
+      <origin
+        xyz="-3.96292054727354E-08 0.0726345100381241 -2.167081318942E-07"
+        rpy="0 0 0" />
+      <mass
+        value="1.56019572503001" />
+      <inertia
+        ixx="0.00656388679851847"
+        ixy="1.41063788210675E-09"
+        ixz="9.10761052510705E-10"
+        iyy="0.0057934244345591"
+        iyz="1.77577535678169E-09"
+        izz="0.00559373575880951" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_shoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_shoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_shoulder_joint"
+    type="revolute">
+    <origin
+      xyz="0.010602 0.013304 1.5898"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_shoulder" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="left_arm">
+    <inertial>
+      <origin
+        xyz="-0.000893113638092772 0.172410538496933 2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="3.64824554759342" />
+      <inertia
+        ixx="0.0544185452421672"
+        ixy="0.000425031939006034"
+        ixz="5.15828334546812E-19"
+        iyy="0.00551340267860238"
+        iyz="3.59003427926645E-18"
+        izz="0.0544358083122559" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_arm.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_arm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_arm_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.1016 0"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="left_shoulder" />
+    <child
+      link="left_arm" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="left_elbow">
+    <inertial>
+      <origin
+        xyz="1.38777878078145E-17 1.73472347597681E-18 0.11606676677164"
+        rpy="0 0 0" />
+      <mass
+        value="1.74639332378377" />
+      <inertia
+        ixx="0.00724841040068815"
+        ixy="-9.33059730959815E-19"
+        ixz="-1.28949695704378E-18"
+        iyy="0.00751277539646961"
+        iyz="8.35321357120543E-19"
+        izz="0.00323005681450046" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_elbow.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_elbow.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_elbow_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.381 0"
+      rpy="-1.5708 1.5708 0" />
+    <parent
+      link="left_arm" />
+    <child
+      link="left_elbow" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="left_wrist">
+    <inertial>
+      <origin
+        xyz="8.32667268468867E-17 0 0.060409096734418"
+        rpy="0 0 0" />
+      <mass
+        value="0.728849105066119" />
+      <inertia
+        ixx="0.00186899083790638"
+        ixy="-3.05705416583082E-21"
+        ixz="1.61190820908969E-19"
+        iyy="0.00205929919732262"
+        iyz="-5.7117951154831E-21"
+        izz="0.000957693606063723" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_wrist.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_wrist.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_wrist_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.20574"
+      rpy="0 0 0" />
+    <parent
+      link="left_elbow" />
+    <child
+      link="left_wrist" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="right_shoulder">
+    <inertial>
+      <origin
+        xyz="-3.96292052506908E-08 0.0726345100381243 -2.16708131745014E-07"
+        rpy="0 0 0" />
+      <mass
+        value="1.56019572503002" />
+      <inertia
+        ixx="0.0065638867985185"
+        ixy="1.41063788375166E-09"
+        ixz="9.10761048538323E-10"
+        iyy="0.00579342443455913"
+        iyz="1.77577534679862E-09"
+        izz="0.00559373575880952" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_shoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_shoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_shoulder_joint"
+    type="revolute">
+    <origin
+      xyz="0.010602 -0.49978 1.5898"
+      rpy="3.14 -1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_shoulder" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="right_arm">
+    <inertial>
+      <origin
+        xyz="-0.000893113638092545 0.172410538496933 -1.11022302462516E-16"
+        rpy="0 0 0" />
+      <mass
+        value="3.64824554759342" />
+      <inertia
+        ixx="0.0544185452421672"
+        ixy="0.000425031939006017"
+        ixz="8.37442146411413E-19"
+        iyy="0.00551340267860238"
+        iyz="6.60907236986942E-18"
+        izz="0.0544358083122559" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_arm.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_arm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_arm_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.1016 0"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="right_shoulder" />
+    <child
+      link="right_arm" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="right_elbow">
+    <inertial>
+      <origin
+        xyz="-1.11022302462516E-16 3.12250225675825E-17 0.11606676677164"
+        rpy="0 0 0" />
+      <mass
+        value="1.74639332378377" />
+      <inertia
+        ixx="0.00724841040068815"
+        ixy="1.7205356741103E-19"
+        ixz="1.46010738420509E-18"
+        iyy="0.0075127753964696"
+        iyz="-1.9422670934523E-18"
+        izz="0.00323005681450046" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_elbow.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_elbow.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_elbow_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.381 0"
+      rpy="-1.5708 -1.5708 0" />
+    <parent
+      link="right_arm" />
+    <child
+      link="right_elbow" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="right_wrist">
+    <inertial>
+      <origin
+        xyz="-2.22044604925031E-16 1.59594559789866E-16 0.0604090967344179"
+        rpy="0 0 0" />
+      <mass
+        value="0.728849105066118" />
+      <inertia
+        ixx="0.00186899083790638"
+        ixy="-2.97155405962741E-19"
+        ixz="4.87374547293201E-19"
+        iyy="0.00205929919732262"
+        iyz="-4.64593380861232E-19"
+        izz="0.000957693606063722" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_wrist.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_wrist.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wrist_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.20574"
+      rpy="0 0 0" />
+    <parent
+      link="right_elbow" />
+    <child
+      link="right_wrist" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="left_hip">
+    <inertial>
+      <origin
+        xyz="-3.24063686996112E-08 -0.0838074396606449 -2.93284197018517E-07"
+        rpy="0 0 0" />
+      <mass
+        value="1.93964619163942" />
+      <inertia
+        ixx="0.0106525223302184"
+        ixy="7.10819583347524E-10"
+        ixz="1.35242370949113E-09"
+        iyy="0.00698383305415745"
+        iyz="1.23222038684469E-08"
+        izz="0.00888495918343655" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_hip.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_hip_joint"
+    type="revolute">
+    <origin
+      xyz="0.010602 0 1.1072"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_hip" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="left_leg">
+    <inertial>
+      <origin
+        xyz="0.0020950013124778 0.173937286502491 4.16333634234434E-17"
+        rpy="0 0 0" />
+      <mass
+        value="6.90607667394109" />
+      <inertia
+        ixx="0.0874000302830266"
+        ixy="-0.00185919086350345"
+        ixz="7.1175382518895E-19"
+        iyy="0.0234639864741564"
+        iyz="-7.53078148089085E-18"
+        izz="0.0868667740278979" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_leg_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.069246 0"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="left_hip" />
+    <child
+      link="left_leg" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="left_knee">
+    <inertial>
+      <origin
+        xyz="0 -0.114379732466841 3.64291929955129E-17"
+        rpy="0 0 0" />
+      <mass
+        value="4.0874110281987" />
+      <inertia
+        ixx="0.0301800448742339"
+        ixy="-3.2479730113273E-18"
+        ixz="-9.76063588449612E-19"
+        iyy="0.0139240835744229"
+        iyz="1.94592153639194E-18"
+        izz="0.0312348898732568" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_knee.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_knee.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_knee_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.3683 0"
+      rpy="3.1416 1.5708 0" />
+    <parent
+      link="left_leg" />
+    <child
+      link="left_knee" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="left_ankle_pt1">
+    <inertial>
+      <origin
+        xyz="0 -0.0629029228281084 -5.17681400300177E-05"
+        rpy="0 0 0" />
+      <mass
+        value="1.17515922067024" />
+      <inertia
+        ixx="0.00302389455208288"
+        ixy="2.22197930234944E-19"
+        ixz="1.74730728656942E-19"
+        iyy="0.00163337750998661"
+        iyz="7.87013630139063E-19"
+        izz="0.00318668563105977" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_ankle_pt1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_ankle_pt1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_ankle_pt1_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.2794 0"
+      rpy="3.1416 0 3.1416" />
+    <parent
+      link="left_knee" />
+    <child
+      link="left_ankle_pt1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="left_ankle_pt2">
+    <inertial>
+      <origin
+        xyz="-0.0113876860437379 -0.0557449655653097 1.21430643318376E-17"
+        rpy="0 0 0" />
+      <mass
+        value="1.13544679961476" />
+      <inertia
+        ixx="0.00182638215770938"
+        ixy="-0.000264485879523374"
+        ixz="8.7811080667131E-22"
+        iyy="0.00256318780094316"
+        iyz="-8.77307876588523E-20"
+        izz="0.00258363858998943" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_ankle_pt2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_ankle_pt2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_ankle_pt2_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.12954 -5.1768E-05"
+      rpy="3.1416 3.14 3.1416" />
+    <parent
+      link="left_ankle_pt1" />
+    <child
+      link="left_ankle_pt2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="left_wheel">
+    <inertial>
+      <origin
+        xyz="8.32667268468867E-17 -0.0254000000000003 -1.2490009027033E-16"
+        rpy="0 0 0" />
+      <mass
+        value="6.69902756890433" />
+      <inertia
+        ixx="0.114271466015671"
+        ixy="-5.97489383911613E-17"
+        ixz="-3.46944695195361E-17"
+        iyy="0.225661635613773"
+        iyz="7.67227116125576E-18"
+        izz="0.114271466015671" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.077216 -0.0762 0"
+      rpy="0 -0.55466 -1.5708" />
+    <parent
+      link="left_ankle_pt2" />
+    <child
+      link="left_wheel" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="right_hip">
+    <inertial>
+      <origin
+        xyz="-3.24063689216558E-08 0.0933881267335711 -2.93284196921373E-07"
+        rpy="0 0 0" />
+      <mass
+        value="1.93964619163942" />
+      <inertia
+        ixx="0.0106525223302185"
+        ixy="7.10819581577124E-10"
+        ixz="1.35242370870441E-09"
+        iyy="0.00698383305415747"
+        iyz="1.23222038584418E-08"
+        izz="0.00888495918343657" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_hip.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_hip_joint"
+    type="revolute">
+    <origin
+      xyz="0.010602 -0.30928 1.1072"
+      rpy="3.1416 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_hip" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="right_leg">
+    <inertial>
+      <origin
+        xyz="0.00209500131247771 0.173937286502492 -5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="6.90607667394109" />
+      <inertia
+        ixx="0.0874000302830266"
+        ixy="-0.00185919086350345"
+        ixz="2.05319843182843E-18"
+        iyy="0.0234639864741564"
+        iyz="1.67952993641204E-17"
+        izz="0.086866774027898" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_leg_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.10795 0"
+      rpy="1.5708 1.5708 0" />
+    <parent
+      link="right_hip" />
+    <child
+      link="right_leg" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="right_knee">
+    <inertial>
+      <origin
+        xyz="1.45805040263625E-09 0.114079028396153 -0.0082884545830748"
+        rpy="0 0 0" />
+      <mass
+        value="4.0874110281987" />
+      <inertia
+        ixx="0.0301800448742339"
+        ixy="-2.0667383998578E-10"
+        ixz="1.50641018609994E-11"
+        iyy="0.0140149840736073"
+        iyz="0.00125111871263126"
+        izz="0.0311439893740724" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_knee.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_knee.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_knee_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.3683 0"
+      rpy="3.14 -1.5708 3.14" />
+    <parent
+      link="right_leg" />
+    <child
+      link="right_knee" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="right_ankle_pt1">
+    <inertial>
+      <origin
+        xyz="0 -0.0629029228281084 5.1768140029931E-05"
+        rpy="0 0 0" />
+      <mass
+        value="1.17515922067024" />
+      <inertia
+        ixx="0.00302389455208289"
+        ixy="-4.457890892925E-19"
+        ixz="2.00452508352177E-19"
+        iyy="0.00163337750998661"
+        iyz="-3.44488188062192E-19"
+        izz="0.00318668563105978" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_ankle_pt1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_ankle_pt1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_ankle_pt1_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.27867 -0.020247"
+      rpy="3.0691 0 0" />
+    <parent
+      link="right_knee" />
+    <child
+      link="right_ankle_pt1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="right_ankle_pt2">
+    <inertial>
+      <origin
+        xyz="-0.0113876860437378 0.0557449655653096 1.21430643318376E-17"
+        rpy="0 0 0" />
+      <mass
+        value="1.13544679961476" />
+      <inertia
+        ixx="0.00182638215770938"
+        ixy="0.000264485879523375"
+        ixz="-3.0106906459211E-21"
+        iyy="0.00256318780094316"
+        iyz="9.09296859182037E-20"
+        izz="0.00258363858998943" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_ankle_pt2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_ankle_pt2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_ankle_pt2_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.12954 5.1768E-05"
+      rpy="3.1416 0 0" />
+    <parent
+      link="right_ankle_pt1" />
+    <child
+      link="right_ankle_pt2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="right_wheel">
+    <inertial>
+      <origin
+        xyz="0 -0.0254000000000003 2.77555756156289E-16"
+        rpy="0 0 0" />
+      <mass
+        value="6.69902756890434" />
+      <inertia
+        ixx="0.114271466015671"
+        ixy="-3.58115635159599E-17"
+        ixz="-1.38777878078145E-17"
+        iyy="0.225661635613773"
+        iyz="-3.22154684235905E-17"
+        izz="0.114271466015671" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.077216 0.0762 0"
+      rpy="0 1.183 -1.5708" />
+    <parent
+      link="right_ankle_pt2" />
+    <child
+      link="right_wheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="neck">
+    <inertial>
+      <origin
+        xyz="-1.21430643318376E-17 0.145510643487064 1.11022302462516E-16"
+        rpy="0 0 0" />
+      <mass
+        value="17.1307231054686" />
+      <inertia
+        ixx="0.191681675087255"
+        ixy="-8.08732484847028E-18"
+        ixz="1.09320189755008E-17"
+        iyy="0.178241912023667"
+        iyz="2.10132051143793E-18"
+        izz="0.191681675087255" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/neck.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheeled_humanoid_robot/meshes/neck.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="neck_joint"
+    type="continuous">
+    <origin
+      xyz="0.010481 -0.24324 1.7702"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="neck" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+</robot>
