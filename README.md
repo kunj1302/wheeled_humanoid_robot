@@ -18,7 +18,7 @@ To launch the robot model and URDF in Gazebo:
 
 ros2 launch wheeled_humanoid_robot gazebo.launch.py
 ```
-To stabilize the robot, turn off the physics and gravity option and reset the Gazebo world by setting robot model pose to x,y,z,roll,pitch,yaw = (0,0,0,0,0,0).
+To stabilize the robot, turn off the physics and gravity option from the World tab in Gazebo and reset the Gazebo world by setting robot model pose to x,y,z,roll,pitch,yaw = (0,0,0,0,0,0).
 
 This command will:
 - Spawn the wheeled humanoid robot in Gazebo.
