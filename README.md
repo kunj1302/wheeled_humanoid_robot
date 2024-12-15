@@ -69,33 +69,3 @@ This command will:
 2. Click `Add` and select the **LaserScan** plugin.
 3. Subscribe to the `/scan_relay` topic to visualize the LIDAR data.
 4. Adjust settings like **Size** and **Color** for better visibility.
-
----
-
-### 4. Full Launch with Gazebo and RViz
-For a streamlined process, launch Gazebo, RViz, and LIDAR together:
-```bash
-ros2 launch wheeled_humanoid_robot full_launch.launch.py
-```
-
-This single command will:
-- Spawn the robot in Gazebo.
-- Start RViz with pre-configured displays.
-- Enable LIDAR data relay.
-
----
-
-### Notes
-- Ensure the `robot_state_publisher` node is running to broadcast TF transforms.
-- Verify the following topics in RViz:
-  - `/robot_description` for the robot model.
-  - `/joint_states` for real-time joint data.
-  - `/scan_relay` for LIDAR scan visualization.
-- Edit `.launch.py` files to customize simulation parameters or topic names if needed.
-
----
-
-This README provides detailed instructions for running, debugging, and visualizing the wheeled humanoid robot in simulation environments. 
-```
-
-You can now copy and paste this code directly into your `README.md` file!
