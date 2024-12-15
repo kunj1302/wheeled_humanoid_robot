@@ -29,7 +29,7 @@ This command will:
 
 ### 2. Launch Robot Model and LIDAR in RViz
 To launch both Gazebo and RViz together, run:
-```bash
+
 ros2 launch wheeled_humanoid_robot debug.launch.py
 ```
 
