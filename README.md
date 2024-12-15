@@ -54,7 +54,7 @@ This will:
 
 ### 3. Enable LIDAR Visualization
 To activate LIDAR data, open a new terminal and run:
-```bash
+
 ros2 run wheeled_humanoid_robot laser_scan_relay.py
 ```
 
