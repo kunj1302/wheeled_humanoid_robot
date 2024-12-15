@@ -8,16 +8,14 @@ This package provides all necessary files to launch and visualize the wheeled hu
 ## Features
 - **Gazebo Simulation**: Launch the robot model in Gazebo.
 - **RViz Visualization**: Visualize the robot model and LIDAR data in RViz.
-- **Laser Scanning**: Enable LIDAR data visualization for robotic sensing.
+- **LiDar Scanning**: Enable LIDAR data visualization for robotic sensing.
 - **Robot Model**: Visualize the robot's URDF description in RViz.
-- **Transform Frames (TF)**: View the robot's TF tree in RViz.
-- **Joint States**: Display live joint state information for the robot.
 
 ## Launch Instructions
 
 ### 1. Launch Robot Model in Gazebo
 To launch the robot model and URDF in Gazebo:
-```bash
+
 ros2 launch wheeled_humanoid_robot gazebo.launch.py
 ```
 
