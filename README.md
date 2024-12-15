@@ -42,14 +42,6 @@ This will:
 3. Subscribe to the `/robot_description` topic:
    - This loads the robot's URDF model for visualization.
 
-#### Steps to View Transform Frames (TF) in RViz:
-1. Add the **TF** plugin in the Display Panel.
-2. Ensure the robot's transform tree is visible and updates dynamically.
-
-#### Steps to View Joint States in RViz:
-1. Add the **RobotState** plugin.
-2. Subscribe to the `/joint_states` topic to monitor real-time joint data.
-
 ---
 
 ### 3. Enable LIDAR Visualization
@@ -65,4 +57,3 @@ This command will:
 1. In RViz, open the **Display Panel**.
 2. Click `Add` and select the **LaserScan** plugin.
 3. Subscribe to the `/scan_relay` topic to visualize the LIDAR data.
-4. Adjust settings like **Size** and **Color** for better visibility.
