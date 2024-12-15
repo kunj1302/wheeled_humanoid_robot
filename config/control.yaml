@@ -1,0 +1,51 @@
+controller_manager:
+    ros__parameters:
+        update_rate: 1000  # Hz
+
+        use_sim_time: true
+
+        position_controller:
+            type: position_controllers/JointGroupPositionController
+
+        joint_state_broadcaster:
+            type: joint_state_broadcaster/JointStateBroadcaster
+
+
+
+
+
+position_controller:
+    ros__parameters:
+        joints:
+
+            - left_shoulder_joint
+            - left_arm_joint
+            - left_elbow_joint
+            - left_wrist_joint
+            - left_hip_joint
+            - left_leg_joint
+            - left_knee_joint
+            - left_ankle_pt1_joint
+            - left_ankle_pt2_joint
+            - left_wheel_joint
+
+            - right_shoulder_joint
+            - right_arm_joint
+            - right_elbow_joint
+            - right_wrist_joint
+            - right_hip_joint
+            - right_leg_joint
+            - right_knee_joint
+            - right_ankle_pt1_joint
+            - right_ankle_pt2_joint
+            - right_wheel_joint
+
+            - neck_joint
+        interface_name: position
+        command_interfaces:
+            - position
+        state_interfaces:
+            - position
+            - velocity
+
+

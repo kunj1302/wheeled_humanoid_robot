@@ -18,10 +18,10 @@ install(DIRECTORY
 urdf
 meshes
 launch
-#scripts
+scripts
 worlds
 #competition
-#config
+config
 DESTINATION share/${PROJECT_NAME}/
 )
 
@@ -38,7 +38,7 @@ install(
   #scripts/teleop.py
   #scripts/straight_line_controller.py
   #scripts/p_controller.py
-  #scripts/laser_scan_relay.py
+  scripts/laser_scan_relay.py
   DESTINATION lib/${PROJECT_NAME}
   )
 

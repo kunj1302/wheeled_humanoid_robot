@@ -27,7 +27,7 @@ def generate_launch_description():
     # [Roll, Pitch, Yaw]
     orientation = [0.0, 0.0, 0.0]
     # Base Name or robot
-    robot_base_name = "robot_name"
+    robot_base_name = "wheeled_humanoid_robot"
     ####### DATA INPUT END ##########
 
     # Path to robot model XACRO File
@@ -85,7 +85,6 @@ def generate_launch_description():
     )
 
     # Joint State Publisher Node
-
     joint_state_publisher_node = Node(
         package='joint_state_publisher',
         executable='joint_state_publisher',
@@ -94,6 +93,29 @@ def generate_launch_description():
         parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}]
     )
 
+
+    # Joint State Broadcaster Node
+    joint_state_broadcaster_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
+    )
+
+
+    # Joint Position Controller Node
+    robot_position_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["position_controller", "--controller-manager", "/controller_manager"],
+    )
+
+    # Delay start of robot_controller after `joint_state_broadcaster`
+    delay_robot_postion_controller_spawner_after_joint_state_broadcaster_spawner = RegisterEventHandler(
+        event_handler=OnProcessExit(
+            target_action=joint_state_broadcaster_spawner,
+            on_exit=[robot_position_controller_spawner],
+        )
+    )
 
     # Static TF Transform
     tf=Node(
@@ -115,6 +137,9 @@ def generate_launch_description():
             joint_state_publisher_node,
             robot_state_publisher,
             spawn_robot,
+            joint_state_broadcaster_spawner,
+            delay_robot_postion_controller_spawner_after_joint_state_broadcaster_spawner,
+            
             tf
         ]
     )
