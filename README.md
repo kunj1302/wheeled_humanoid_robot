@@ -18,10 +18,10 @@ To launch the robot model and URDF in Gazebo:
 
 ros2 launch wheeled_humanoid_robot gazebo.launch.py
 ```
+To stabilize the robot, turn off the physics and gravity option and reset the Gazebo world by setting robot model pose to x,y,z,roll,pitch,yaw = (0,0,0,0,0,0).
 
 This command will:
 - Spawn the wheeled humanoid robot in Gazebo.
-- Load the URDF description into the `/robot_description` topic.
 
 ---
 
@@ -41,7 +41,6 @@ This will:
 2. Click `Add` and select the **RobotModel** plugin.
 3. Subscribe to the `/robot_description` topic:
    - This loads the robot's URDF model for visualization.
-4. Adjust the **Alpha** setting in the RobotModel plugin if the model appears faint.
 
 #### Steps to View Transform Frames (TF) in RViz:
 1. Add the **TF** plugin in the Display Panel.
